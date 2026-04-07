@@ -1,0 +1,128 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const documentos = [
+  {
+    nombre: "Acta de Extravío J.P.",
+    file: "ACTA DE EXTRAVÌO J.P..docx",
+    icon: "mdi:file-alert-outline",
+    size: "720 KB",
+  },
+  {
+    nombre: "Constancia de Hechos J.P.",
+    file: "CONSTANCIA DE HECHOS J.P..docx",
+    icon: "mdi:gavel",
+    size: "526 KB",
+  },
+  {
+    nombre: "Ratificación de Firmas J.P.",
+    file: "RATIFICACIÒN DE FIRMAS J.P..docx",
+    icon: "mdi:file-sign",
+    size: "721 KB",
+  },
+];
+
+const folderPath = "/JUZGADO DE PAZ/";
+---
+
+<MainLayout title="Juzgado de Paz | Gobierno de Ayala">
+  <section class="relative bg-[#8B1A2B] pt-16 pb-32 overflow-hidden">
+    <div
+      class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+      <a
+        href="/tramites"
+        class="inline-flex items-center text-white/60 hover:text-white mb-8 text-xs font-bold uppercase tracking-widest transition-colors group"
+      >
+        <Icon
+          name="mdi:arrow-left"
+          class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+        />
+        Volver a Trámites
+      </a>
+      <h1
+        class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-6"
+      >
+        Juzgado <span class="text-white/50">de Paz</span>
+      </h1>
+      <p
+        class="text-white/80 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
+      >
+        Formatos oficiales para la certificación de documentos, hechos y actos
+        jurídicos de competencia municipal.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 w-full h-16 bg-gray-50"
+      style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"
+    >
+    </div>
+  </section>
+
+  <section class="bg-gray-50 pb-24 -mt-12">
+    <div class="max-w-7xl mx-auto px-4 relative z-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          documentos.map((doc) => (
+            <div class="group bg-white rounded-[2.5rem] p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:border-[#8B1A2B]/10 transition-all duration-500 flex flex-col justify-between overflow-hidden relative">
+              <div class="absolute top-0 left-0 w-full h-1.5 bg-[#8B1A2B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+              <div>
+                <div class="flex items-start justify-between mb-6">
+                  <div class="p-4 bg-gray-50 rounded-2xl group-hover:bg-[#8B1A2B]/5 transition-colors duration-500">
+                    <Icon name={doc.icon} class="w-10 h-10 text-[#8B1A2B]" />
+                  </div>
+                  <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-100 px-3 py-1 rounded-md">
+                    {doc.size}
+                  </span>
+                </div>
+                <h3 class="text-gray-900 font-bold text-xl leading-tight mb-8 group-hover:text-[#8B1A2B] transition-colors min-h-[60px] flex items-center">
+                  {doc.nombre}
+                </h3>
+              </div>
+
+              <a
+                href={`${folderPath}${doc.file}`}
+                download
+                class="w-full inline-flex items-center justify-center gap-3 bg-gray-900 text-white font-bold py-4 px-6 rounded-2xl hover:bg-[#8B1A2B] transition-all active:scale-95 shadow-lg shadow-black/10 group-hover:shadow-[#8B1A2B]/20 uppercase text-xs tracking-widest"
+              >
+                <Icon name="mdi:download" class="w-5 h-5" />
+                Descargar Formato
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="mt-16 bg-white rounded-[2.5rem] p-8 border-2 border-dashed border-gray-200 flex flex-col md:flex-row items-center gap-6 text-center md:text-left"
+      >
+        <div class="text-[#8B1A2B]/20">
+          <Icon name="mdi:frequently-asked-questions" class="w-16 h-16" />
+        </div>
+        <div>
+          <h4 class="text-lg font-bold text-gray-900">
+            ¿Requieres una ratificación presencial?
+          </h4>
+          <p class="text-gray-500 text-sm italic">
+            Recuerda que ciertos trámites del Juzgado de Paz requieren la
+            presencia física de los interesados con identificación oficial
+            vigente.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <p
+          class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]"
+        >
+          Ayala La Transformación es Contigo
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

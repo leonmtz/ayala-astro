@@ -1,0 +1,128 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+// Archivo único oficial de Licencias y Reglamentos
+const documentoLicencias = {
+  nombre: "Guía de Trámite 2024-2030 Licencias y Reglamentos",
+  file: "GUIA DE TRAMITE 2024- 2030.docx",
+};
+
+const folderPath = "/LICENCIAS Y REGLAMENTOS/";
+---
+
+<MainLayout title="Licencias y Reglamentos | Gobierno de Ayala">
+  <section class="relative bg-[#8B1A2B] pt-16 pb-32 overflow-hidden">
+    <div
+      class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+      <a
+        href="/tramites"
+        class="inline-flex items-center text-white/60 hover:text-white mb-8 text-xs font-bold uppercase tracking-widest transition-colors group"
+      >
+        <Icon
+          name="mdi:arrow-left"
+          class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+        />
+        Volver a Trámites
+      </a>
+      <h1
+        class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-6"
+      >
+        Licencias y <span class="text-white/50">Reglamentos</span>
+      </h1>
+      <p
+        class="text-white/80 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
+      >
+        Obtén los lineamientos y requisitos necesarios para la apertura de
+        establecimientos y cumplimiento de normatividad municipal.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 w-full h-16 bg-gray-50"
+      style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"
+    >
+    </div>
+  </section>
+
+  <section class="bg-gray-50 pb-24 -mt-12">
+    <div class="max-w-7xl mx-auto px-4 relative z-20">
+      <div class="max-w-xl mx-auto">
+        <div
+          class="group bg-white rounded-[3rem] p-10 md:p-14 shadow-2xl shadow-gray-200/50 border border-gray-100 hover:border-[#8B1A2B]/10 transition-all duration-500 flex flex-col items-center text-center relative overflow-hidden"
+        >
+          <div class="absolute top-0 left-0 w-full h-2 bg-[#8B1A2B]"></div>
+
+          <div
+            class="p-6 bg-[#8B1A2B]/5 rounded-3xl mb-8 group-hover:scale-110 transition-transform duration-500"
+          >
+            <Icon
+              name="mdi:file-certificate"
+              class="w-16 h-16 text-[#8B1A2B]"
+            />
+          </div>
+
+          <span
+            class="text-[11px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 bg-gray-50 px-4 py-2 rounded-full"
+          >
+            Vigencia 2024-2030
+          </span>
+
+          <h2
+            class="text-2xl md:text-3xl font-black text-gray-900 mb-6 leading-tight"
+          >
+            {documentoLicencias.nombre}
+          </h2>
+
+          <p class="text-gray-500 mb-10 leading-relaxed text-sm">
+            Descarga el manual completo de mejora regulatoria para conocer los
+            pasos, costos y tiempos de respuesta para tus licencias comerciales.
+          </p>
+
+          <div class="w-full">
+            <a
+              href={`${folderPath}${documentoLicencias.file}`}
+              download
+              class="w-full inline-flex items-center justify-center gap-3 bg-[#8B1A2B] text-white font-black py-5 px-8 rounded-2xl hover:bg-[#701522] transition-all active:scale-95 shadow-xl shadow-[#8B1A2B]/20 uppercase text-sm tracking-widest"
+            >
+              <Icon name="mdi:download" class="w-6 h-6" />
+              Descargar Guía (725 KB)
+            </a>
+
+            <div
+              class="mt-6 flex items-center justify-center gap-4 text-gray-400"
+            >
+              <div class="flex items-center gap-1">
+                <Icon name="mdi:file-word" class="w-4 h-4" />
+                <span class="text-[10px] font-bold uppercase tracking-tighter"
+                  >DOCX</span
+                >
+              </div>
+              <div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+              <div class="flex items-center gap-1">
+                <Icon
+                  name="mdi:file-search-outline"
+                  class="w-4 h-4 text-[#8B1A2B]/40"
+                />
+                <span class="text-[10px] font-bold uppercase tracking-tighter"
+                  >Consultable</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <p
+          class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]"
+        >
+          Ayala La Transformación es Contigo
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

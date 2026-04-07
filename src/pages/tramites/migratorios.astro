@@ -1,0 +1,157 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const documentos = [
+  {
+    nombre: "Guía de Trámite de Apostille de Acta de Nacimiento Americana",
+    file: "GUIA DE TRAMITE DE DE APOSTILLE DE ACTA DE NACIMIENTO AMERICANA..docx",
+  },
+  {
+    nombre: "Guía de Trámite de Doble Nacionalidad",
+    file: "GUIA DE TRAMITE DE DOBLE NACIONALIDAD.docx",
+  },
+  {
+    nombre: "Guía de Trámite de Traducción de Acta de Nacimiento Americana",
+    file: "GUIA DE TRAMITE DE traduccion de acta de nacimiento americana..docx",
+  },
+  {
+    nombre: "Guía de Trámite Pasaporte Americano",
+    file: "GUIA DE TRAMITE PASAPORTE AMERICANO.docx",
+  },
+  {
+    nombre: "Guía de Trámite Pasaporte Mexicano",
+    file: "GUIA DE TRAMITE PASAPORTE MEXICANO.docx",
+  },
+  {
+    nombre: "Guía de Trámite Renovación de Pasaporte Mexicano",
+    file: "GUIA DE TRAMITE RENOVACION DE PASAPORTE MEXICANO.docx",
+  },
+  {
+    nombre: "Guía de Trámite Repatriación de Cuerpo",
+    file: "GUIA DE TRAMITE repatriacion de cuerpo..docx",
+  },
+  {
+    nombre: "Guía de Trámite Visa Americana",
+    file: "GUIA DE TRAMITE VISA AMERICANA.docx",
+  },
+  {
+    nombre: "Programa de Reunificación Familiar Ángeles Sin Fronteras",
+    file: "PROGRAMA DE REUNIFICACION FAMILAR ANGELES SIN FRONTERAS.docx",
+  },
+];
+
+const folderPath = "/ASUNTOS MIGRATORIOS/";
+---
+
+<MainLayout title="Asuntos Migratorios | Gobierno de Ayala">
+  <section class="relative bg-[#8B1A2B] pt-16 pb-32 overflow-hidden">
+    <div
+      class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+      <a
+        href="/tramites"
+        class="inline-flex items-center text-white/60 hover:text-white mb-8 text-xs font-bold uppercase tracking-widest transition-colors group"
+      >
+        <Icon
+          name="mdi:arrow-left"
+          class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform"
+        />
+        Volver a Trámites
+      </a>
+      <h1
+        class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-6"
+      >
+        Asuntos <span class="text-white/50">Migratorios</span>
+      </h1>
+      <p class="text-white/80 max-w-2xl mx-auto text-lg font-medium">
+        Descarga las guías oficiales y formatos necesarios para tus trámites.
+        Documentación actualizada y autorizada por el H. Ayuntamiento.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 w-full h-16 bg-gray-50"
+      style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"
+    >
+    </div>
+  </section>
+
+  <section class="bg-gray-50 pb-24 -mt-12">
+    <div class="max-w-7xl mx-auto px-4 relative z-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          documentos.map((doc) => (
+            <div class="group bg-white rounded-[2.5rem] p-8 shadow-sm border border-gray-100 hover:shadow-2xl hover:border-[#8B1A2B]/10 transition-all duration-500 flex flex-col justify-between overflow-hidden relative">
+              <div class="absolute top-0 left-0 w-full h-1 bg-[#8B1A2B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+              <div>
+                <div class="flex items-start justify-between mb-6">
+                  <div class="p-4 bg-gray-50 rounded-2xl group-hover:bg-[#8B1A2B]/5 transition-colors">
+                    <Icon
+                      name="mdi:file-word"
+                      class="w-10 h-10 text-[#8B1A2B]"
+                    />
+                  </div>
+                  <span class="text-[10px] font-black text-gray-400 uppercase tracking-[0.15em] bg-gray-100 px-3 py-1.5 rounded-lg">
+                    DOCX / 528 KB
+                  </span>
+                </div>
+                <h3 class="text-gray-900 font-bold text-xl leading-tight mb-8 group-hover:text-[#8B1A2B] transition-colors">
+                  {doc.nombre}
+                </h3>
+              </div>
+
+              <a
+                href={`${folderPath}${doc.file}`}
+                download
+                class="w-full inline-flex items-center justify-center gap-3 bg-gray-900 text-white font-bold py-4 px-6 rounded-2xl hover:bg-[#8B1A2B] transition-all active:scale-95 shadow-lg shadow-black/10 group-hover:shadow-[#8B1A2B]/20"
+              >
+                <Icon name="mdi:download" class="w-5 h-5" />
+                DESCARGAR GUÍA
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="mt-16 bg-gradient-to-r from-[#701522] to-[#8B1A2B] rounded-[3rem] p-10 md:p-14 text-white flex flex-col md:flex-row items-center gap-10 shadow-2xl shadow-[#8B1A2B]/30 border border-white/5 relative overflow-hidden"
+      >
+        <div
+          class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"
+        >
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-3xl backdrop-blur-md shadow-inner">
+          <Icon name="mdi:information-variant" class="w-14 h-14 text-white" />
+        </div>
+
+        <div class="text-center md:text-left relative z-10">
+          <h4 class="text-3xl font-black mb-3">¿Necesitas orientación?</h4>
+          <p class="text-white/70 text-lg font-medium max-w-xl leading-relaxed">
+            Si tienes dudas sobre los requisitos o el llenado de los formatos,
+            visítanos en la oficina de **Asuntos Migratorios** dentro del
+            Palacio Municipal.
+          </p>
+        </div>
+
+        <div class="md:ml-auto relative z-10">
+          <button
+            class="bg-white text-[#8B1A2B] font-black px-10 py-5 rounded-2xl hover:bg-gray-50 transition-all hover:-translate-y-1 active:scale-95 shadow-xl uppercase text-sm tracking-widest"
+          >
+            Ubicar Oficina
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-400 text-xs font-bold uppercase tracking-[0.3em]">
+          H. Ayuntamiento de Ayala | 2024 - 2027
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

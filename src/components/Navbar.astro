@@ -1,5 +1,19 @@
 ---
 import { Icon } from "astro-icon/components";
+
+// Definimos la lista para mantener consistencia con la sección anterior
+const menuTramites = [
+  { name: "Asuntos Migratorios", href: "/tramites/migratorios" },
+  { name: "Catastro", href: "/tramites/catastro" },
+  { name: "Bomberos", href: "/tramites/bomberos" },
+  { name: "Dirección de Salud", href: "/tramites/salud" },
+  { name: "Impuesto Predial", href: "/tramites/predial" },
+  { name: "Juzgado de Paz", href: "/tramites/juzgado" },
+  { name: "Licencias y Reglamentos", href: "/tramites/licencias" },
+  { name: "Registro Civil", href: "/tramites/registro-civil" },
+  { name: "Desarrollo Agropecuario", href: "/tramites/agropecuario" },
+  { name: "Dirección de Gobierno", href: "/tramites/gobierno" },
+];
 ---
 
 <header class="bg-white shadow-md relative z-50">
@@ -41,38 +55,34 @@ import { Icon } from "astro-icon/components";
         >
           <a
             href="/tramites"
-            class="group-hover:text-[#8B1A2B] transition-colors"
-            >TRÁMITES Y SERVICIOS</a
+            class="group-hover:text-[#8B1A2B] transition-colors font-bold uppercase text-sm"
           >
+            TRÁMITES Y SERVICIOS
+          </a>
           <Icon
             name="mdi:chevron-down"
             class="w-4 h-4 group-hover:text-[#8B1A2B] group-hover:rotate-180 transition-transform duration-300"
           />
 
           <ul
-            class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50"
+            class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[450px] opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50"
           >
             <div
-              class="bg-white rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden py-2 flex flex-col"
+              class="bg-white rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden p-4"
             >
-              <a
-                href="/tramites/en-linea"
-                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
-              >
-                Trámites y Servicios en Línea
-              </a>
-              <a
-                href="/tramites/catalogo"
-                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
-              >
-                Catálogo de Trámites y Servicios
-              </a>
-              <a
-                href="/tramites/vecs"
-                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
-              >
-                Ventanilla de Construcción Simplificada (VECS)
-              </a>
+              <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+                {
+                  menuTramites.map((tramite) => (
+                    <a
+                      href={tramite.href}
+                      class="px-3 py-2 text-[11px] xl:text-xs text-gray-700 font-medium hover:text-[#8B1A2B] hover:bg-gray-50 rounded-lg transition-colors flex items-center"
+                    >
+                      <span class="w-1.5 h-1.5 bg-[#8B1A2B]/20 rounded-full mr-2 group-hover:bg-[#8B1A2B]" />
+                      {tramite.name}
+                    </a>
+                  ))
+                }
+              </div>
             </div>
           </ul>
         </li>
