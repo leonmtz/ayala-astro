@@ -1,0 +1,186 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const foros = [
+  {
+    fecha: "18 de Marzo",
+    hora: "17:00 HRS",
+    sede: "Cabecera Municipal",
+    lugar: "Auditorio Usos Múltiples",
+    comunidades: [
+      "Anenecuilco",
+      "Olintepec",
+      "Rafael Merino",
+      "Abelardo L. Rodríguez",
+      "Moyotepec",
+      "Col. Emiliano Zapata 'Chivatero'",
+      "San Vicente de Juárez 'Las Piedras'",
+      "Col. Ejidal Rafael Merino",
+    ],
+    color: "bg-[#8B1A2B]",
+  },
+  {
+    fecha: "19 de Marzo",
+    hora: "17:00 HRS",
+    sede: "Tenextepango",
+    lugar: "Ayudantía Municipal",
+    comunidades: [
+      "Ahuehueyo",
+      "Apatlaco",
+      "Constancio Farfán",
+      "Loma Bonita",
+      "El Salitre",
+      "Col. Leopoldo Heredia",
+      "Col. Niños Héroes",
+      "Col. Benito Juárez",
+      "Buenavista",
+    ],
+    color: "bg-[#721222]",
+  },
+  {
+    fecha: "20 de Marzo",
+    hora: "17:00 HRS",
+    sede: "Chinameca",
+    lugar: "Auditorio Ejidal",
+    comunidades: ["El Vergel", "Palo Blanco", "Tecomalco"],
+    color: "bg-[#5a0e1a]",
+  },
+  {
+    fecha: "24 de Marzo",
+    hora: "17:00 HRS",
+    sede: "Jaloxtoc",
+    lugar: "Auditorio Ejidal",
+    comunidades: [
+      "Huitzililla",
+      "Tlayecac",
+      "10 de Abril",
+      "Unidad Habitacional Mariano Matamoros",
+    ],
+    color: "bg-[#460a14]",
+  },
+];
+---
+
+<MainLayout title="Calendario de Foros 2025 | Gobierno de Ayala">
+  <section
+    class="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden"
+  >
+    <img
+      src="/_A743535.jpg"
+      class="absolute inset-0 w-full h-full object-cover scale-105"
+      alt="Mural Histórico de Ayala"
+    />
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+    <div class="relative z-10 text-center px-4">
+      <nav class="flex justify-center mb-4">
+        <ol
+          class="inline-flex items-center space-x-2 text-white/60 text-xs font-bold uppercase tracking-widest"
+        >
+          <li>
+            <a href="/" class="hover:text-white transition-colors">Inicio</a>
+          </li>
+          <Icon name="mdi:chevron-right" class="w-4 h-4" />
+          <li>
+            <a href="/convocatorias" class="hover:text-white transition-colors"
+              >Convocatorias</a>
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="text-3xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none"
+      >
+        Calendario de Foros <br />
+        <span class="text-amber-400 italic">Consulta Ciudadana 2025</span>
+      </h1>
+    </div>
+  </section>
+
+  <section
+    class="bg-gray-50 py-20 -mt-10 relative z-20 rounded-t-[3rem] md:rounded-t-[5rem]"
+  >
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          foros.map((foro) => (
+            <div class="group bg-white rounded-[3rem] overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              {/* Encabezado de la Tarjeta */}
+              <div
+                class={`${foro.color} p-8 text-white relative overflow-hidden`}
+              >
+                <Icon
+                  name="mdi:clock-outline"
+                  class="absolute -right-4 -bottom-4 w-32 h-32 opacity-10 rotate-12"
+                />
+                <div class="flex justify-between items-start relative z-10">
+                  <div>
+                    <p class="text-amber-400 font-black uppercase tracking-[0.2em] text-xs mb-1">
+                      Fecha y Hora
+                    </p>
+                    <h2 class="text-3xl font-black tracking-tighter">
+                      {foro.fecha.toUpperCase()}
+                    </h2>
+                    <p class="text-xl font-medium opacity-90">{foro.hora}</p>
+                  </div>
+                  <div class="bg-white/20 backdrop-blur-md p-3 rounded-2xl">
+                    <Icon
+                      name="mdi:map-marker-radius"
+                      class="w-8 h-8 text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Cuerpo de la Tarjeta */}
+              <div class="p-8 md:p-10">
+                <div class="mb-8">
+                  <h3 class="text-gray-400 font-black uppercase tracking-widest text-[10px] mb-2">
+                    Sede y Ubicación
+                  </h3>
+                  <p class="text-2xl font-black text-gray-900 leading-tight">
+                    {foro.sede} <br />
+                    <span class="text-[#8B1A2B] text-lg font-bold">
+                      ({foro.lugar})
+                    </span>
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="text-gray-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
+                    Comunidades Convocadas
+                    <div class="h-px bg-gray-100 flex-grow" />
+                  </h3>
+                  <div class="flex flex-wrap gap-2">
+                    {foro.comunidades.map((comu) => (
+                      <span class="bg-gray-50 border border-gray-200 text-gray-600 px-4 py-2 rounded-xl text-sm font-bold group-hover:border-[#8B1A2B]/20 group-hover:bg-[#8B1A2B]/5 transition-colors">
+                        {comu}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* Footer de la sección */}
+      <div
+        class="mt-20 text-center bg-amber-50 border-2 border-dashed border-amber-200 rounded-[3rem] p-10"
+      >
+        <Icon
+          name="mdi:account-group"
+          class="w-12 h-12 text-amber-600 mx-auto mb-4"
+        />
+        <h4 class="text-xl font-black text-gray-900 uppercase tracking-tighter">
+          ¡Tu participación es vital!
+        </h4>
+        <p class="text-gray-600 max-w-xl mx-auto mt-2 font-medium">
+          Acude a la sede que corresponde a tu comunidad y ayúdanos a construir
+          el Plan de Desarrollo Municipal.
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

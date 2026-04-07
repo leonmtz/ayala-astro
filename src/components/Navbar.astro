@@ -341,8 +341,69 @@ const menuTramites = [
         <li
           class="flex items-center gap-1 cursor-pointer hover:text-[#8B1A2B] transition-colors group relative py-2"
         >
-          <a href="/convocatorias">CONVOCATORÍAS</a>
-          <Icon name="mdi:chevron-down" class="w-4 h-4" />
+          <a href="/convocatorias">CONVOCATORIAS</a>
+          <Icon
+            name="mdi:chevron-down"
+            class="w-4 h-4 group-hover:rotate-180 transition-transform"
+          />
+
+          <ul
+            class="absolute top-full left-0 w-72 bg-white shadow-xl rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100 z-50"
+          >
+            <li>
+              <a
+                href="/CONVOCATORIAS/CONVOCATORIA-AYUDANTES-2025.pdf"
+                target="_blank"
+                class="flex items-center gap-2 p-3 rounded-xl hover:bg-gray-50 text-gray-700 hover:text-[#8B1A2B] transition-colors"
+              >
+                <Icon name="mdi:account-group" class="w-5 h-5 opacity-70" />
+                <span class="text-xs font-bold uppercase tracking-tight"
+                  >Ayudantes Municipales 2025</span
+                >
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/convocatorias/calendario-foros"
+                class="flex items-center gap-2 p-3 rounded-xl hover:bg-gray-50 text-gray-700 hover:text-[#8B1A2B] transition-colors"
+              >
+                <Icon name="mdi:calendar-clock" class="w-5 h-5 opacity-70" />
+                <span class="text-xs font-bold uppercase tracking-tight"
+                  >Foros de Consulta 2025</span
+                >
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/CONVOCATORIAS/CONVOCATORIA-PARA-INSCRIPCION-O-RENOVACION-DE-PROVEEDORES-2025-AYALA-MORELOS.pdf"
+                target="_blank"
+                class="flex items-center gap-2 p-3 rounded-xl hover:bg-gray-50 text-gray-700 hover:text-[#8B1A2B] transition-colors"
+              >
+                <Icon name="mdi:file-certificate" class="w-5 h-5 opacity-70" />
+                <span class="text-xs font-bold uppercase tracking-tight"
+                  >Proveedores Ayala 2025</span
+                >
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/CONVOCATORIAS/CONVOCATORIA-PARA-INSCRIPCION-O-RENOVACION-DE-PROVEEDORES-2026-AYALA-MORELOS.pdf"
+                target="_blank"
+                class="flex items-center gap-2 p-3 rounded-xl hover:bg-gray-50 text-gray-700 hover:text-[#8B1A2B] transition-colors"
+              >
+                <Icon
+                  name="mdi:file-document-edit"
+                  class="w-5 h-5 opacity-70"
+                />
+                <span class="text-xs font-bold uppercase tracking-tight"
+                  >Proveedores Ayala 2026</span
+                >
+              </a>
+            </li>
+          </ul>
         </li>
 
         <li>
