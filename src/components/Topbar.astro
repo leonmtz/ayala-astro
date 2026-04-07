@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="bg-[#8B1A2B] text-white text-xs sm:text-sm">
+  <div
+    class="w-full mx-auto flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 py-2 gap-3 sm:gap-0"
+  >
+    <div class="flex items-center gap-3">
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook Oficial"
+        class="bg-white text-[#8B1A2B] p-1.5 rounded-md hover:bg-gray-200 hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-sm"
+      >
+        <Icon name="mdi:facebook" class="w-[18px] h-[18px]" />
+      </a>
+    </div>
+
+    <div
+      class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 font-medium"
+    >
+      <a
+        href="mailto:contacto@ayala.gob.mx"
+        class="flex items-center gap-2 hover:text-gray-300 transition-colors duration-300 group"
+      >
+        <Icon
+          name="mdi:email-outline"
+          class="w-4 h-4 opacity-80 group-hover:opacity-100 transition-opacity"
+        />
+        <span class="tracking-wide">contacto@ayala.gob.mx</span>
+      </a>
+
+      <a
+        href="tel:+527353083548"
+        class="flex items-center gap-2 hover:text-gray-300 transition-colors duration-300 group"
+      >
+        <Icon
+          name="mdi:phone-outline"
+          class="w-4 h-4 opacity-80 group-hover:opacity-100 transition-opacity"
+        />
+        <span class="tracking-wide">(735) 308 3548</span>
+      </a>
+    </div>
+  </div>
+</div>

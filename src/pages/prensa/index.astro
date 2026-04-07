@@ -1,0 +1,243 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const noticias = [
+  {
+    id: 1,
+    etiqueta: "Comunicado Oficial",
+    fecha: "07 Mar 2026",
+    titulo:
+      "El Presidente Municipal anuncia nueva fase del programa de pavimentación en el centro histórico.",
+    resumen:
+      "Con una inversión histórica, se busca rehabilitar las principales arterias viales para mejorar la movilidad y el comercio local en el corazón de Ayala.",
+    imagen: "/ayuntamiento.webp",
+  },
+  {
+    id: 2,
+    etiqueta: "Cultura",
+    fecha: "05 Mar 2026",
+    titulo: "Inauguración de la exposición fotográfica 'Raíces de Ayala'.",
+    resumen:
+      "Una crónica visual que recorre la historia agraria de nuestro municipio, disponible en la plaza cívica durante todo el mes.",
+    imagen: "/_A743845.jpg",
+  },
+  {
+    id: 3,
+    etiqueta: "Protección Civil",
+    fecha: "04 Mar 2026",
+    titulo: "Nuevas unidades de emergencia se integran al parque vehicular.",
+    resumen:
+      "Equipamiento de última generación para reducir los tiempos de respuesta ante cualquier contingencia en las comunidades.",
+    imagen: "/DJI_0048.jpg",
+  },
+  {
+    id: 4,
+    etiqueta: "Desarrollo Social",
+    fecha: "02 Mar 2026",
+    titulo: "Convocatoria abierta para becas de transporte universitario.",
+    resumen:
+      "Apoyo directo a la economía familiar para asegurar que ningún joven detenga sus estudios por falta de movilidad.",
+    imagen: "/DJI_0044.jpg",
+  },
+];
+---
+
+<MainLayout title="Sala de Prensa | Gobierno de Ayala">
+  <section class="relative overflow-hidden bg-[#8B1A2B]">
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#8B1A2B] via-[#99152b] to-[#8B1A2B]"
+      >
+      </div>
+
+      <Icon
+        name="mdi:newspaper-variant-outline"
+        class="absolute right-[-4rem] top-24 h-56 w-56 md:h-72 md:w-72 lg:h-80 lg:w-80 text-white/8 rotate-12"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-24 lg:pb-28 text-center">
+        <nav class="flex justify-center mb-8 md:mb-10">
+          <ol
+            class="inline-flex items-center space-x-2 rounded-full border border-white/10 bg-black/15 px-5 py-2 backdrop-blur-md"
+          >
+            <li>
+              <a
+                href="/"
+                class="flex items-center text-sm font-medium text-white/80 hover:text-white transition-colors"
+              >
+                <Icon name="mdi:home" class="w-4 h-4 mr-2" />
+                Inicio
+              </a>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <Icon name="mdi:chevron-right" class="w-5 h-5 text-white/50" />
+                <span
+                  class="ml-2 text-sm font-bold text-white tracking-widest uppercase"
+                >
+                  Prensa
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight"
+        >
+          SALA DE <span class="text-red-300">PRENSA</span>
+        </h1>
+
+        <p
+          class="mt-6 text-lg md:text-xl text-white/90 max-w-3xl mx-auto font-light italic leading-relaxed"
+        >
+          Mantente informado sobre las acciones, eventos y comunicados oficiales
+          de la administración 2025-2027.
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full leading-none">
+      <svg
+        class="block w-full h-[70px] md:h-[90px] lg:h-[110px]"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,64 C180,118 350,8 600,42 C830,72 975,136 1200,70 L1200,120 L0,120 Z"
+          fill="#f9fafb"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="relative bg-gray-50 pt-12 md:pt-16 lg:pt-20 pb-24 md:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 md:mb-12 flex items-center gap-3">
+        <span class="w-2 h-10 rounded-full bg-[#8B1A2B]"></span>
+        <h2
+          class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight"
+        >
+          Noticias y comunicados
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          noticias.map((noticia, index) => (
+            <article
+              class={`group bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 flex flex-col ${
+                index === 0
+                  ? "md:col-span-2 lg:col-span-2 lg:grid lg:grid-cols-2"
+                  : ""
+              }`}
+            >
+              <div
+                class={`relative overflow-hidden ${index === 0 ? "h-72 md:h-full" : "h-64"}`}
+              >
+                <img
+                  src={noticia.imagen}
+                  alt={noticia.titulo}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute top-5 left-5">
+                  <span class="bg-[#8B1A2B] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
+                    {noticia.etiqueta}
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-7 md:p-8 lg:p-9 flex flex-col justify-center">
+                <div class="flex items-center gap-2 text-gray-400 text-xs font-semibold mb-4 uppercase tracking-wider">
+                  <Icon
+                    name="mdi:calendar-range"
+                    class="w-4 h-4 text-[#8B1A2B]"
+                  />
+                  {noticia.fecha}
+                </div>
+
+                <h3
+                  class={`font-extrabold text-gray-900 mb-4 leading-tight group-hover:text-[#8B1A2B] transition-colors ${
+                    index === 0 ? "text-2xl md:text-3xl" : "text-xl"
+                  }`}
+                >
+                  {noticia.titulo}
+                </h3>
+
+                <p class="text-gray-600 line-clamp-3 mb-8 text-sm md:text-base leading-relaxed">
+                  {noticia.resumen}
+                </p>
+
+                <div class="mt-auto">
+                  <a
+                    href={`/prensa/${noticia.id}`}
+                    class="inline-flex items-center gap-2 text-[#8B1A2B] font-bold text-sm uppercase tracking-wider group/btn"
+                  >
+                    Leer nota completa
+                    <span class="w-8 h-8 rounded-full bg-[#8B1A2B]/10 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#8B1A2B] group-hover/btn:text-white">
+                      <Icon
+                        name="mdi:arrow-right"
+                        class="w-4 h-4 transition-transform group-hover/btn:translate-x-1"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-16 flex justify-center items-center gap-4">
+        <button
+          class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[#8B1A2B] hover:text-[#8B1A2B] transition-all"
+        >
+          <Icon name="mdi:chevron-left" class="w-6 h-6" />
+        </button>
+
+        <span
+          class="bg-[#8B1A2B] text-white w-12 h-12 rounded-xl flex items-center justify-center font-bold shadow-lg shadow-[#8B1A2B]/30"
+        >
+          1
+        </span>
+
+        <button
+          class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center text-gray-700 hover:border-[#8B1A2B] hover:text-[#8B1A2B] transition-all"
+        >
+          2
+        </button>
+
+        <button
+          class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center text-gray-700 hover:border-[#8B1A2B] hover:text-[#8B1A2B] transition-all"
+        >
+          3
+        </button>
+
+        <button
+          class="w-12 h-12 rounded-xl border border-gray-200 flex items-center justify-center text-gray-700 hover:border-[#8B1A2B] hover:text-[#8B1A2B] transition-all"
+        >
+          <Icon name="mdi:chevron-right" class="w-6 h-6" />
+        </button>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

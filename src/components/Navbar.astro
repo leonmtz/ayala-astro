@@ -1,0 +1,505 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<header class="bg-white shadow-md relative z-50">
+  <div
+    class="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-3 lg:py-4"
+  >
+    <div class="flex-shrink-0">
+      <a href="/" aria-label="Ir al inicio">
+        <img
+          src="/logo.png"
+          class="h-16 sm:h-20 lg:h-24 w-auto transition-all duration-300 hover:scale-105"
+          alt="Ayala Municipio"
+        />
+      </a>
+    </div>
+
+    <div class="flex lg:hidden">
+      <button
+        id="mobile-menu-btn"
+        class="text-[#8B1A2B] hover:text-red-900 focus:outline-none p-2 rounded-md transition-colors"
+        aria-label="Abrir menú"
+      >
+        <Icon name="mdi:menu" class="w-8 h-8" />
+      </button>
+    </div>
+
+    <nav class="hidden lg:flex flex-1 justify-center px-4">
+      <ul
+        class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[11px] xl:text-[13px] font-bold text-gray-800 tracking-wide"
+      >
+        <li>
+          <a href="/gobierno" class="hover:text-[#8B1A2B] transition-colors"
+            >GOBIERNO</a
+          >
+        </li>
+
+        <li
+          class="flex items-center gap-1 cursor-pointer transition-colors group relative py-2"
+        >
+          <a
+            href="/tramites"
+            class="group-hover:text-[#8B1A2B] transition-colors"
+            >TRÁMITES Y SERVICIOS</a
+          >
+          <Icon
+            name="mdi:chevron-down"
+            class="w-4 h-4 group-hover:text-[#8B1A2B] group-hover:rotate-180 transition-transform duration-300"
+          />
+
+          <ul
+            class="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50"
+          >
+            <div
+              class="bg-white rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden py-2 flex flex-col"
+            >
+              <a
+                href="/tramites/en-linea"
+                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
+              >
+                Trámites y Servicios en Línea
+              </a>
+              <a
+                href="/tramites/catalogo"
+                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
+              >
+                Catálogo de Trámites y Servicios
+              </a>
+              <a
+                href="/tramites/vecs"
+                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
+              >
+                Ventanilla de Construcción Simplificada (VECS)
+              </a>
+            </div>
+          </ul>
+        </li>
+        <li
+          class="flex items-center gap-1 cursor-pointer transition-colors group relative py-2"
+        >
+          <a
+            href="#"
+            class="group-hover:text-[#8B1A2B] transition-colors uppercase"
+          >
+            TRANSPARENCIA
+          </a>
+          <Icon
+            name="mdi:chevron-down"
+            class="w-4 h-4 group-hover:text-[#8B1A2B] group-hover:rotate-180 transition-transform duration-300"
+          />
+
+          <ul
+            class="absolute top-full left-0 pt-2 w-80 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50"
+          >
+            <div
+              class="bg-white rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 overflow-visible py-2 flex flex-col"
+            >
+              <a
+                href="#"
+                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors border-b border-gray-50"
+              >
+                CUENTA PÚBLICA 2024
+              </a>
+
+              <div
+                class="group/sub relative px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors border-b border-gray-50 flex justify-between items-center cursor-pointer"
+              >
+                <span>CUENTA PÚBLICA 2025</span>
+                <Icon name="mdi:chevron-right" class="w-4 h-4" />
+
+                <div
+                  class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0"
+                >
+                  <div
+                    class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-56"
+                  >
+                    <a
+                      href="#"
+                      class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B]"
+                      >1ER TRIMESTRE 2025</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B]"
+                      >2DO TRIMESTRE 2025</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B]"
+                      >3ER TRIMESTRE 2025</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B]"
+                      >4TO TRIMESTRE 2025</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group/sub relative px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors border-b border-gray-50 flex justify-between items-center cursor-pointer"
+              >
+                <span class="leading-tight"
+                  >SISTEMA DE RECURSOS FEDERALES TRANSFERIDOS (SRFT)</span
+                >
+                <Icon name="mdi:chevron-right" class="w-4 h-4" />
+
+                <div
+                  class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0"
+                >
+                  <div
+                    class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-48"
+                  >
+                    <div
+                      class="group/nested relative px-5 py-2 hover:bg-gray-50 flex justify-between items-center"
+                    >
+                      <span>2025</span>
+                      <Icon name="mdi:chevron-right" class="w-4 h-4" />
+                      <div
+                        class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/nested:visible group-hover/nested:opacity-100 group-hover/nested:translate-x-0"
+                      >
+                        <div
+                          class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-48"
+                        >
+                          <a href="#" class="block px-5 py-2 hover:bg-gray-50"
+                            >1ER TRIMESTRE</a
+                          >
+                          <a href="#" class="block px-5 py-2 hover:bg-gray-50"
+                            >2DO TRIMESTRE</a
+                          >
+                          <a href="#" class="block px-5 py-2 hover:bg-gray-50"
+                            >3ER TRIMESTRE</a
+                          >
+                          <a href="#" class="block px-5 py-2 hover:bg-gray-50"
+                            >4TO TRIMESTRE</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group/sub relative px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors border-b border-gray-50 flex justify-between items-center cursor-pointer"
+              >
+                <span>LEY DE DISCIPLINA FINANCIERA</span>
+                <Icon name="mdi:chevron-right" class="w-4 h-4" />
+
+                <div
+                  class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0"
+                >
+                  <div
+                    class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-72"
+                  >
+                    <a
+                      href="#"
+                      class="block px-5 py-2 hover:bg-gray-50 leading-tight"
+                      >1ER TRIMESTRE 2025 – LEY DE DISCIPLINA FINANCIERA</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://www.plataformadetransparencia.org.mx/datos-abiertos"
+                target="_blank"
+                class="px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors"
+              >
+                PLATAFORMA DE TRANSPARENCIA
+              </a>
+            </div>
+          </ul>
+        </li>
+
+        <li
+          class="flex items-center gap-1 cursor-pointer transition-colors group relative py-2"
+        >
+          <a
+            href="#"
+            class="group-hover:text-[#8B1A2B] transition-colors uppercase"
+          >
+            COMUNICACIÓN
+          </a>
+          <Icon
+            name="mdi:chevron-down"
+            class="w-4 h-4 group-hover:text-[#8B1A2B] group-hover:rotate-180 transition-transform duration-300"
+          />
+
+          <ul
+            class="absolute top-full left-0 pt-2 w-56 opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50"
+          >
+            <div
+              class="bg-white rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 overflow-visible py-2 flex flex-col"
+            >
+              <div
+                class="group/sub relative px-5 py-2.5 text-xs xl:text-sm text-gray-700 font-bold hover:text-[#8B1A2B] hover:bg-gray-50 transition-colors flex justify-between items-center cursor-pointer"
+              >
+                <span>GACETA</span>
+                <Icon name="mdi:chevron-right" class="w-4 h-4" />
+
+                <div
+                  class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0"
+                >
+                  <div
+                    class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-32"
+                  >
+                    <div
+                      class="group/nested relative px-5 py-2 hover:bg-gray-50 flex justify-between items-center"
+                    >
+                      <span>2025</span>
+                      <Icon name="mdi:chevron-right" class="w-4 h-4" />
+
+                      <div
+                        class="absolute left-full top-0 pl-2 opacity-0 invisible translate-x-2 transition-all duration-300 group-hover/nested:visible group-hover/nested:opacity-100 group-hover/nested:translate-x-0"
+                      >
+                        <div
+                          class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-48"
+                        >
+                          <a
+                            href="/pdf/GACETA-PRIMER-TRIMESTRE-2025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B] transition-colors"
+                          >
+                            1ER TRIMESTRE
+                          </a>
+
+                          <a
+                            href="/pdf/GACETA-SEGUNDO-TRIMESTRE-2025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B] transition-colors"
+                          >
+                            2DO TRIMESTRE
+                          </a>
+
+                          <a
+                            href="/pdf/GACETA-TERCER-TRIMESTRE-2025.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B] transition-colors"
+                          >
+                            3ER TRIMESTRE
+                          </a>
+
+                          <a
+                            href="/pdf/GACETA-CUARTO-TRIMESTRE-2025-1.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="block px-5 py-2 hover:bg-gray-50 hover:text-[#8B1A2B] transition-colors"
+                          >
+                            4TO TRIMESTRE
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a href="#" class="block px-5 py-2 hover:bg-gray-50">2026</a
+                    >
+                    <a href="#" class="block px-5 py-2 hover:bg-gray-50">2027</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/prensa" class="hover:text-[#8B1A2B] transition-colors"
+            >PRENSA</a
+          >
+        </li>
+        <li>
+          <a href="/descubre" class="hover:text-[#8B1A2B] transition-colors"
+            >DESCUBRE MÁS</a
+          >
+        </li>
+        <li>
+          <a href="/contacto" class="hover:text-[#8B1A2B] transition-colors"
+            >CONTACTO</a
+          >
+        </li>
+
+        <li
+          class="flex items-center gap-1 cursor-pointer hover:text-[#8B1A2B] transition-colors group relative py-2"
+        >
+          <a href="/convocatorias">CONVOCATORÍAS</a>
+          <Icon name="mdi:chevron-down" class="w-4 h-4" />
+        </li>
+
+        <li>
+          <a href="/predial" class="hover:text-[#8B1A2B] transition-colors"
+            >PAGO EN LÍNEA PREDIAL</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div
+      class="hidden lg:flex items-center gap-4 border-l-2 border-gray-100 pl-4 flex-shrink-0"
+    >
+      <img
+        src="/llave-ayala.webp"
+        class="h-10 xl:h-12 w-auto"
+        alt="Llave Ayala"
+      />
+      <div
+        class="flex flex-col text-[#8B1A2B] font-semibold text-xs xl:text-sm"
+      >
+        <a href="/login" class="hover:underline transition-all"
+          >Iniciar Sesión</a
+        >
+        <a href="/registro" class="hover:underline transition-all"
+          >Registrarse</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40"
+  >
+    <div
+      class="px-4 pt-2 pb-6 space-y-1 max-h-[70vh] overflow-y-auto custom-scrollbar"
+    >
+      <ul class="flex flex-col text-sm font-semibold text-gray-800">
+        <li>
+          <a
+            href="/gobierno"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >GOBIERNO</a
+          >
+        </li>
+
+        <li class="border-b border-gray-50">
+          <div class="flex items-center justify-between py-3">
+            <a href="/tramites" class="hover:text-[#8B1A2B]"
+              >TRÁMITES Y SERVICIOS</a
+            >
+          </div>
+          <ul class="flex flex-col pl-4 pb-2 bg-gray-50/30">
+            <li>
+              <a
+                href="/tramites/en-linea"
+                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
+                >Trámites y Servicios en Línea</a
+              >
+            </li>
+            <li>
+              <a
+                href="/tramites/catalogo"
+                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
+                >Catálogo de Trámites y Servicios</a
+              >
+            </li>
+            <li>
+              <a
+                href="/tramites/vecs"
+                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
+                >Ventanilla de Construcción Simplificada (VECS)</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            href="/transparencia"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >TRANSPARENCIA</a
+          >
+        </li>
+        <li>
+          <a
+            href="/comunicacion"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >COMUNICACIÓN</a
+          >
+        </li>
+        <li>
+          <a
+            href="/prensa"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >PRENSA</a
+          >
+        </li>
+        <li>
+          <a
+            href="/descubre"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >DESCUBRE MÁS</a
+          >
+        </li>
+        <li>
+          <a
+            href="/contacto"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >CONTACTO</a
+          >
+        </li>
+        <li>
+          <a
+            href="/convocatorias"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >CONVOCATORÍAS</a
+          >
+        </li>
+        <li>
+          <a
+            href="/predial"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
+            >PAGO EN LÍNEA PREDIAL</a
+          >
+        </li>
+      </ul>
+
+      <div
+        class="mt-4 p-4 bg-gray-50 rounded-lg flex flex-col items-center gap-3"
+      >
+        <img src="/llave-ayala.webp" class="h-8 w-auto" alt="Llave Ayala" />
+        <a
+          href="/login"
+          class="w-full text-center py-2 bg-white text-[#8B1A2B] border border-[#8B1A2B] rounded-md shadow-sm"
+          >Iniciar Sesión</a
+        >
+        <a
+          href="/registro"
+          class="w-full text-center py-2 bg-[#8B1A2B] text-white rounded-md shadow-sm"
+          >Registrarse</a
+        >
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Lógica Vanilla JS para abrir/cerrar el menú en Astro
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
+</script>
+
+<style>
+  /* Scrollbar estético para el menú móvil si hay muchos elementos */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(139, 26, 43, 0.3);
+    border-radius: 4px;
+  }
+</style>

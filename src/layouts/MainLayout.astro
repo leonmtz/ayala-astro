@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+
+import Navbar from "../components/Navbar.astro";
+import Topbar from "../components/Topbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+      Ayala La Transoformación es Contigo | H. Ayuntamiento Municipal
+    </title>
+  </head>
+
+  <body>
+    <Topbar />
+    <Navbar />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,125 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const tramitesData = [
+  {
+    titulo: "Trámites en Línea",
+    descripcion:
+      "Realiza tus pagos, consultas y gestiones desde la comodidad de tu hogar de forma rápida y 100% segura.",
+    icono: "mdi:laptop-account",
+    enlace: "/tramites/en-linea",
+  },
+  {
+    titulo: "Catálogo de Trámites",
+    descripcion:
+      "Consulta el listado completo de servicios, requisitos, costos, formatos y dependencias responsables.",
+    icono: "mdi:book-search-outline",
+    enlace: "/tramites/catalogo",
+  },
+  {
+    titulo: "Ventanilla VECS",
+    descripcion:
+      "Agiliza los permisos y licencias para tus proyectos de construcción, comerciales o habitacionales.",
+    icono: "mdi:office-building-cog-outline",
+    enlace: "/tramites/vecs",
+  },
+];
+---
+
+<MainLayout title="Trámites y Servicios | Gobierno de Ayala">
+  <section class="relative bg-[#8B1A2B] pt-12 pb-40">
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    >
+      <nav class="flex justify-center mb-6">
+        <ol
+          class="inline-flex items-center space-x-2 bg-black/20 px-5 py-2 rounded-full border border-white/10"
+        >
+          <li>
+            <a
+              href="/"
+              class="flex items-center text-sm font-medium text-white/80 hover:text-white transition-colors"
+            >
+              <Icon name="mdi:home" class="w-4 h-4 mr-2" />
+              Inicio
+            </a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <Icon name="mdi:chevron-right" class="w-5 h-5 text-white/50" />
+              <span
+                class="ml-2 text-sm font-bold text-white tracking-widest uppercase"
+                >Trámites y Servicios</span
+              >
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+      >
+        TRÁMITES Y <span class="text-red-300">SERVICIOS</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+        Transparencia y eficiencia al servicio de los ciudadanos de Ayala.
+      </p>
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0"
+    >
+      <svg
+        class="relative block w-full h-[60px] md:h-[100px]"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,130.61,200.7,125.82,242.45,123,283.47,113.68,321.39,56.44Z"
+          fill="#f9fafb"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 pb-24">
+    <div
+      class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 md:-mt-28"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          tramitesData.map((item) => (
+            <a
+              href={item.enlace}
+              class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center border border-gray-100 relative overflow-hidden"
+            >
+              <div class="absolute top-0 left-0 w-full h-1.5 bg-[#8B1A2B] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+              <div class="w-20 h-20 bg-[#8B1A2B]/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#8B1A2B] transition-colors duration-300">
+                <Icon
+                  name={item.icono}
+                  class="w-10 h-10 text-[#8B1A2B] group-hover:text-white transition-colors duration-300"
+                />
+              </div>
+
+              <h2 class="text-xl font-extrabold text-gray-900 mb-4 group-hover:text-[#8B1A2B] transition-colors">
+                {item.titulo}
+              </h2>
+
+              <p class="text-gray-600 mb-8 flex-grow">{item.descripcion}</p>
+
+              <div class="mt-auto flex items-center gap-2 text-[#8B1A2B] font-bold text-sm uppercase tracking-wider">
+                Ingresar
+                <Icon
+                  name="mdi:arrow-right"
+                  class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</MainLayout>
