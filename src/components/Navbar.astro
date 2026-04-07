@@ -35,6 +35,8 @@ const menuTramites = [
         id="mobile-menu-btn"
         class="text-[#8B1A2B] hover:text-red-900 focus:outline-none p-2 rounded-md transition-colors"
         aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <Icon name="mdi:menu" class="w-8 h-8" />
       </button>
@@ -86,6 +88,7 @@ const menuTramites = [
             </div>
           </ul>
         </li>
+
         <li
           class="flex items-center gap-1 cursor-pointer transition-colors group relative py-2"
         >
@@ -343,9 +346,14 @@ const menuTramites = [
         </li>
 
         <li>
-          <a href="/predial" class="hover:text-[#8B1A2B] transition-colors"
-            >PAGO EN LÍNEA PREDIAL</a
+          <a
+            href="https://pagos.hacienda.morelos.gob.mx/#/pagos/dependencias"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
           >
+            PAGO EN LÍNEA PREDIAL
+          </a>
         </li>
       </ul>
     </nav>
@@ -376,7 +384,7 @@ const menuTramites = [
     class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl z-40"
   >
     <div
-      class="px-4 pt-2 pb-6 space-y-1 max-h-[70vh] overflow-y-auto custom-scrollbar"
+      class="px-4 pt-2 pb-6 space-y-1 max-h-[75vh] overflow-y-auto custom-scrollbar"
     >
       <ul class="flex flex-col text-sm font-semibold text-gray-800">
         <li>
@@ -388,50 +396,220 @@ const menuTramites = [
         </li>
 
         <li class="border-b border-gray-50">
-          <div class="flex items-center justify-between py-3">
-            <a href="/tramites" class="hover:text-[#8B1A2B]"
-              >TRÁMITES Y SERVICIOS</a
-            >
+          <button
+            type="button"
+            class="mobile-submenu-toggle w-full flex items-center justify-between py-3 hover:text-[#8B1A2B] transition-colors"
+            data-target="mobile-tramites"
+            aria-expanded="false"
+          >
+            <span>TRÁMITES Y SERVICIOS</span>
+            <Icon
+              name="mdi:chevron-down"
+              class="w-5 h-5 transition-transform duration-300"
+            />
+          </button>
+
+          <div id="mobile-tramites" class="hidden pb-2">
+            <div class="pl-4 pr-2 pb-2 bg-gray-50/40 rounded-lg">
+              <a
+                href="/tramites"
+                class="block py-2 text-xs font-bold text-[#8B1A2B]"
+              >
+                Ver todos los trámites
+              </a>
+
+              {
+                menuTramites.map((tramite) => (
+                  <a
+                    href={tramite.href}
+                    class="block py-2 text-xs font-medium text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    {tramite.name}
+                  </a>
+                ))
+              }
+            </div>
           </div>
-          <ul class="flex flex-col pl-4 pb-2 bg-gray-50/30">
-            <li>
-              <a
-                href="/tramites/en-linea"
-                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
-                >Trámites y Servicios en Línea</a
-              >
-            </li>
-            <li>
-              <a
-                href="/tramites/catalogo"
-                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
-                >Catálogo de Trámites y Servicios</a
-              >
-            </li>
-            <li>
-              <a
-                href="/tramites/vecs"
-                class="block py-2 text-gray-600 hover:text-[#8B1A2B] text-xs font-medium"
-                >Ventanilla de Construcción Simplificada (VECS)</a
-              >
-            </li>
-          </ul>
         </li>
 
-        <li>
-          <a
-            href="/transparencia"
-            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
-            >TRANSPARENCIA</a
+        <li class="border-b border-gray-50">
+          <button
+            type="button"
+            class="mobile-submenu-toggle w-full flex items-center justify-between py-3 hover:text-[#8B1A2B] transition-colors"
+            data-target="mobile-transparencia"
+            aria-expanded="false"
           >
+            <span>TRANSPARENCIA</span>
+            <Icon
+              name="mdi:chevron-down"
+              class="w-5 h-5 transition-transform duration-300"
+            />
+          </button>
+
+          <div id="mobile-transparencia" class="hidden pb-2">
+            <div class="pl-4 pr-2 pb-2 bg-gray-50/40 rounded-lg space-y-1">
+              <a
+                href="#"
+                class="block py-2 text-xs font-medium text-gray-600 hover:text-[#8B1A2B]"
+              >
+                CUENTA PÚBLICA 2024
+              </a>
+
+              <div class="border-t border-gray-100 pt-2">
+                <p class="py-2 text-xs font-bold text-[#8B1A2B]">
+                  CUENTA PÚBLICA 2025
+                </p>
+                <div class="pl-3 space-y-1">
+                  <a
+                    href="#"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                    >1ER TRIMESTRE 2025</a
+                  >
+                  <a
+                    href="#"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                    >2DO TRIMESTRE 2025</a
+                  >
+                  <a
+                    href="#"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                    >3ER TRIMESTRE 2025</a
+                  >
+                  <a
+                    href="#"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                    >4TO TRIMESTRE 2025</a
+                  >
+                </div>
+              </div>
+
+              <div class="border-t border-gray-100 pt-2">
+                <p class="py-2 text-xs font-bold text-[#8B1A2B]">
+                  SISTEMA DE RECURSOS FEDERALES TRANSFERIDOS (SRFT)
+                </p>
+                <div class="pl-3 space-y-1">
+                  <p class="py-1.5 text-xs font-semibold text-gray-700">2025</p>
+                  <div class="pl-3 space-y-1">
+                    <a
+                      href="#"
+                      class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                      >1ER TRIMESTRE</a
+                    >
+                    <a
+                      href="#"
+                      class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                      >2DO TRIMESTRE</a
+                    >
+                    <a
+                      href="#"
+                      class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                      >3ER TRIMESTRE</a
+                    >
+                    <a
+                      href="#"
+                      class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                      >4TO TRIMESTRE</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-t border-gray-100 pt-2">
+                <p class="py-2 text-xs font-bold text-[#8B1A2B]">
+                  LEY DE DISCIPLINA FINANCIERA
+                </p>
+                <div class="pl-3">
+                  <a
+                    href="#"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    1ER TRIMESTRE 2025 – LEY DE DISCIPLINA FINANCIERA
+                  </a>
+                </div>
+              </div>
+
+              <a
+                href="https://www.plataformadetransparencia.org.mx/datos-abiertos"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block py-2 text-xs font-medium text-gray-600 hover:text-[#8B1A2B] border-t border-gray-100 pt-3"
+              >
+                PLATAFORMA DE TRANSPARENCIA
+              </a>
+            </div>
+          </div>
         </li>
-        <li>
-          <a
-            href="/comunicacion"
-            class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
-            >COMUNICACIÓN</a
+
+        <li class="border-b border-gray-50">
+          <button
+            type="button"
+            class="mobile-submenu-toggle w-full flex items-center justify-between py-3 hover:text-[#8B1A2B] transition-colors"
+            data-target="mobile-comunicacion"
+            aria-expanded="false"
           >
+            <span>COMUNICACIÓN</span>
+            <Icon
+              name="mdi:chevron-down"
+              class="w-5 h-5 transition-transform duration-300"
+            />
+          </button>
+
+          <div id="mobile-comunicacion" class="hidden pb-2">
+            <div class="pl-4 pr-2 pb-2 bg-gray-50/40 rounded-lg space-y-1">
+              <p class="py-2 text-xs font-bold text-[#8B1A2B]">GACETA</p>
+
+              <div class="pl-3 space-y-1">
+                <p class="py-1.5 text-xs font-semibold text-gray-700">2025</p>
+                <div class="pl-3 space-y-1">
+                  <a
+                    href="/pdf/GACETA-PRIMER-TRIMESTRE-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    1ER TRIMESTRE
+                  </a>
+                  <a
+                    href="/pdf/GACETA-SEGUNDO-TRIMESTRE-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    2DO TRIMESTRE
+                  </a>
+                  <a
+                    href="/pdf/GACETA-TERCER-TRIMESTRE-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    3ER TRIMESTRE
+                  </a>
+                  <a
+                    href="/pdf/GACETA-CUARTO-TRIMESTRE-2025-1.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >
+                    4TO TRIMESTRE
+                  </a>
+                </div>
+
+                <a
+                  href="#"
+                  class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >2026</a
+                >
+                <a
+                  href="#"
+                  class="block py-1.5 text-xs text-gray-600 hover:text-[#8B1A2B]"
+                  >2027</a
+                >
+              </div>
+            </div>
+          </div>
         </li>
+
         <li>
           <a
             href="/prensa"
@@ -462,10 +640,13 @@ const menuTramites = [
         </li>
         <li>
           <a
-            href="/predial"
+            href="https://pagos.hacienda.morelos.gob.mx/#/pagos/dependencias"
+            target="_blank"
+            rel="noopener noreferrer"
             class="block py-3 border-b border-gray-50 hover:text-[#8B1A2B]"
-            >PAGO EN LÍNEA PREDIAL</a
           >
+            PAGO EN LÍNEA PREDIAL
+          </a>
         </li>
       </ul>
 
@@ -489,25 +670,48 @@ const menuTramites = [
 </header>
 
 <script>
-  // Lógica Vanilla JS para abrir/cerrar el menú en Astro
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
 
   if (btn && menu) {
     btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
+      const isHidden = menu.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", String(!isHidden));
     });
   }
+
+  const submenuButtons = document.querySelectorAll(".mobile-submenu-toggle");
+
+  submenuButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      if (!targetId) return;
+
+      const target = document.getElementById(targetId);
+      const icon = button.querySelector("svg");
+      const expanded = button.getAttribute("aria-expanded") === "true";
+
+      if (target) {
+        target.classList.toggle("hidden");
+        button.setAttribute("aria-expanded", String(!expanded));
+      }
+
+      if (icon) {
+        icon.classList.toggle("rotate-180");
+      }
+    });
+  });
 </script>
 
 <style>
-  /* Scrollbar estético para el menú móvil si hay muchos elementos */
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
   }
+
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
   }
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(139, 26, 43, 0.3);
     border-radius: 4px;
