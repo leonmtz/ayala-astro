@@ -1,0 +1,386 @@
+---
+const BOT_IMAGE = "/bot/robot.png";
+const API_URL = "/api/openia/procesar_ayala.php";
+const GOOGLE_TTS_URL = "/api/google/test.php";
+const AUDIO_URL = "/api/google/audio.mp3";
+---
+
+<div id="bot-ayala-root" class="fixed bottom-4 right-4 z-[9998]">
+  <div
+    id="chatbot-bubble"
+    class="mb-3 max-w-[240px] rounded-2xl border border-[#860634]/20 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-xl transition-all duration-300"
+  >
+    Hola, soy el asistente virtual del Ayuntamiento de Ayala. ¿En qué puedo
+    ayudarte?
+  </div>
+
+  <button
+    id="chatbot-button"
+    type="button"
+    aria-label="Abrir asistente virtual"
+    class="group flex h-24 w-24 items-center justify-center rounded-full bg-white/95 shadow-2xl ring-1 ring-black/5 transition hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.20)]"
+  >
+    <img
+      src={BOT_IMAGE}
+      alt="Bot Ayala"
+      class="h-20 w-20 object-contain transition group-hover:scale-105"
+    />
+  </button>
+</div>
+
+<div
+  id="chatbot-container"
+  class="fixed bottom-32 right-4 z-[9999] hidden h-[560px] w-[380px] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-[28px] border border-white/60 bg-white/95 shadow-[0_20px_60px_rgba(15,23,42,0.25)] backdrop-blur"
+>
+  <div
+    class="bg-gradient-to-r from-[#860634] to-[#a30843] px-5 py-4 text-white"
+  >
+    <div class="flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/20"
+        >
+          <img src={BOT_IMAGE} alt="Bot" class="h-8 w-8 object-contain" />
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold leading-none">Asistente Virtual</h3>
+          <p class="mt-1 text-xs text-white/80">Ayuntamiento de Ayala</p>
+        </div>
+      </div>
+
+      <button
+        id="chatbot-close"
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white transition hover:bg-white/20"
+        aria-label="Cerrar asistente"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="conversation"
+    class="flex-1 space-y-3 overflow-y-auto bg-slate-50 px-4 py-4"
+  >
+  </div>
+
+  <audio id="audio" controls class="hidden"></audio>
+
+  <div class="border-t border-slate-200 bg-white px-4 py-4">
+    <div class="flex items-end gap-3">
+      <textarea
+        id="message"
+        rows="1"
+        placeholder="Escribe tu mensaje..."
+        class="min-h-[50px] flex-1 resize-none rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition focus:border-[#860634] focus:bg-white focus:ring-4 focus:ring-[#860634]/10"
+      ></textarea>
+
+      <button
+        id="send-button"
+        type="button"
+        class="inline-flex h-[50px] items-center justify-center rounded-2xl bg-[#860634] px-5 text-sm font-semibold text-white shadow-lg shadow-[#860634]/20 transition hover:bg-[#6f052b]"
+      >
+        Enviar
+      </button>
+    </div>
+
+    <div class="mt-3 flex items-center justify-center gap-3">
+      <button
+        id="toggle-voice"
+        type="button"
+        class="inline-flex min-w-[140px] items-center justify-center rounded-2xl border border-[#860634]/15 bg-[#860634] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#6f052b]"
+      >
+        Háblame
+      </button>
+
+      <button
+        id="play-audio"
+        type="button"
+        class="hidden items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+      >
+        Escuchar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let recognition = null;
+  let voiceRecognitionActive = false;
+  let firstOpen = true;
+
+  const BOT_IMAGE = "/bot/robot.png";
+  const API_URL = "/api/openia/procesar_ayala.php";
+  const GOOGLE_TTS_URL = "/api/google/test.php";
+  const AUDIO_URL = "/api/google/audio.mp3";
+
+  const chatbotButton = document.getElementById(
+    "chatbot-button",
+  ) as HTMLButtonElement | null;
+  const chatbotContainer = document.getElementById(
+    "chatbot-container",
+  ) as HTMLDivElement | null;
+  const chatbotBubble = document.getElementById(
+    "chatbot-bubble",
+  ) as HTMLDivElement | null;
+  const chatbotClose = document.getElementById(
+    "chatbot-close",
+  ) as HTMLButtonElement | null;
+  const sendButton = document.getElementById(
+    "send-button",
+  ) as HTMLButtonElement | null;
+  const toggleVoiceButton = document.getElementById(
+    "toggle-voice",
+  ) as HTMLButtonElement | null;
+  const playAudioButton = document.getElementById(
+    "play-audio",
+  ) as HTMLButtonElement | null;
+  const messageInput = document.getElementById(
+    "message",
+  ) as HTMLTextAreaElement | null;
+  const conversation = document.getElementById(
+    "conversation",
+  ) as HTMLDivElement | null;
+  const audio = document.getElementById("audio") as HTMLAudioElement | null;
+
+  chatbotButton?.addEventListener("click", () => {
+    if (!chatbotContainer) return;
+
+    const isHidden = chatbotContainer.classList.contains("hidden");
+
+    if (isHidden) {
+      chatbotContainer.classList.remove("hidden");
+      chatbotContainer.classList.add("flex");
+
+      if (firstOpen) {
+        chatbotBubble?.classList.add("hidden");
+        addMessageToConversation(
+          "bot",
+          "Hola, soy el asistente virtual del Ayuntamiento de Ayala. ¿En qué puedo ayudarte?",
+        );
+        firstOpen = false;
+      }
+    } else {
+      chatbotContainer.classList.add("hidden");
+      chatbotContainer.classList.remove("flex");
+    }
+  });
+
+  chatbotClose?.addEventListener("click", () => {
+    if (!chatbotContainer) return;
+    chatbotContainer.classList.add("hidden");
+    chatbotContainer.classList.remove("flex");
+  });
+
+  sendButton?.addEventListener("click", () => {
+    if (!messageInput) return;
+
+    const message = messageInput.value.trim();
+    if (!message) return;
+
+    addMessageToConversation("user", message);
+    sendMessage(message);
+    messageInput.value = "";
+    autoResizeTextarea();
+    stopVoiceRecognition();
+  });
+
+  messageInput?.addEventListener("input", autoResizeTextarea);
+
+  messageInput?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      sendButton?.click();
+    }
+  });
+
+  toggleVoiceButton?.addEventListener("click", () => {
+    if (!toggleVoiceButton) return;
+
+    if (!voiceRecognitionActive) {
+      startVoiceRecognition();
+      voiceRecognitionActive = true;
+      toggleVoiceButton.textContent = "Detener voz";
+    } else {
+      stopVoiceRecognition();
+      voiceRecognitionActive = false;
+      toggleVoiceButton.textContent = "Háblame";
+    }
+  });
+
+  playAudioButton?.addEventListener("click", () => {
+    if (!audio) return;
+    audio.src = AUDIO_URL + "?t=" + Date.now();
+    audio.play();
+  });
+
+  async function sendMessage(message: string) {
+    try {
+      showTyping();
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: "message=" + encodeURIComponent(message),
+      });
+
+      hideTyping();
+
+      const rawText = await response.text();
+
+      let data: any;
+      try {
+        data = JSON.parse(rawText);
+      } catch (parseError) {
+        console.error("La respuesta no es JSON válido:", rawText);
+        addMessageToConversation(
+          "bot",
+          "El servicio del asistente no está respondiendo en formato JSON.",
+        );
+        return;
+      }
+
+      if (!response.ok) {
+        addMessageToConversation(
+          "bot",
+          data.error || "Ocurrió un error al procesar tu solicitud.",
+        );
+        return;
+      }
+
+      const responseText =
+        data.reply || "No se recibió una respuesta adecuada.";
+      addMessageToConversation("bot", responseText);
+
+      try {
+        const ttsResponse = await fetch(GOOGLE_TTS_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: "text=" + encodeURIComponent(responseText),
+        });
+
+        const ttsRaw = await ttsResponse.text();
+
+        let ttsData: any;
+        try {
+          ttsData = JSON.parse(ttsRaw);
+        } catch {
+          console.error("Respuesta TTS no válida:", ttsRaw);
+          return;
+        }
+
+        if (ttsData.success && playAudioButton) {
+          playAudioButton.classList.remove("hidden");
+          playAudioButton.classList.add("inline-flex");
+        }
+      } catch (ttsError) {
+        console.error("Error al convertir texto a voz:", ttsError);
+      }
+    } catch (error) {
+      hideTyping();
+      console.error(error);
+      addMessageToConversation(
+        "bot",
+        "Hubo un error al procesar la solicitud.",
+      );
+    }
+  }
+
+  function startVoiceRecognition() {
+    const SpeechRecognition =
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Tu navegador no soporta reconocimiento de voz.");
+      return;
+    }
+
+    recognition = new SpeechRecognition();
+    recognition.lang = "es-MX";
+    recognition.continuous = false;
+    recognition.interimResults = true;
+
+    recognition.onresult = function (event: any) {
+      if (!messageInput) return;
+      const transcript = event.results[0][0].transcript;
+      messageInput.value = transcript;
+      autoResizeTextarea();
+    };
+
+    recognition.onerror = function (event: any) {
+      console.error("Error en reconocimiento de voz:", event.error);
+    };
+
+    recognition.onend = function () {
+      voiceRecognitionActive = false;
+      if (toggleVoiceButton) {
+        toggleVoiceButton.textContent = "Háblame";
+      }
+    };
+
+    recognition.start();
+  }
+
+  function stopVoiceRecognition() {
+    if (recognition) {
+      recognition.stop();
+    }
+  }
+
+  function autoResizeTextarea() {
+    if (!messageInput) return;
+    messageInput.style.height = "auto";
+    messageInput.style.height = Math.min(messageInput.scrollHeight, 120) + "px";
+  }
+
+  function addMessageToConversation(sender: "user" | "bot", message: string) {
+    if (!conversation) return;
+
+    const messageContainer = document.createElement("div");
+    messageContainer.className =
+      sender === "user" ? "flex justify-end" : "flex justify-start";
+
+    const messageElement = document.createElement("div");
+    messageElement.className =
+      sender === "user"
+        ? "max-w-[82%] rounded-[20px] rounded-br-md bg-[#860634] px-4 py-3 text-sm leading-6 text-white shadow-sm"
+        : "max-w-[86%] rounded-[20px] rounded-bl-md border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-800 shadow-sm";
+
+    messageElement.innerText = message;
+
+    messageContainer.appendChild(messageElement);
+    conversation.appendChild(messageContainer);
+    conversation.scrollTop = conversation.scrollHeight;
+  }
+
+  function showTyping() {
+    if (!conversation) return;
+
+    hideTyping();
+
+    const typing = document.createElement("div");
+    typing.id = "typing-indicator";
+    typing.className = "flex justify-start";
+
+    typing.innerHTML = `
+      <div class="max-w-[86%] rounded-[20px] rounded-bl-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-500 shadow-sm">
+        Escribiendo...
+      </div>
+    `;
+
+    conversation.appendChild(typing);
+    conversation.scrollTop = conversation.scrollHeight;
+  }
+
+  function hideTyping() {
+    const typing = document.getElementById("typing-indicator");
+    if (typing) typing.remove();
+  }
+</script>

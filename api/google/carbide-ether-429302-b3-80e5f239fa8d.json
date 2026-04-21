@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "carbide-ether-429302-b3",
+  "private_key_id": "80e5f239fa8de8c97883110f8702286a335ed66b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDxWbsBEp2cQgY/\nvkFRzbt4QO6CQ7lQgu8v92RXAa3S53JDUwZ/uHLNdljWeWVJZ4mZyVUEFB+0/rjF\n5JtEkbKvjLqaKeahj0JahXGzQqkP0yqoCNwZD644GlG+PwVT+kom6ME4kXRLzE2i\n6Ow+vOPT8RLKAEQIMtrsHXKlUaybdULFrMKFuAO9pPvKNP360rrROIpuTb5cDCig\nU6vnlfy4I/DIvL0QbKDN9N1Ax7qMbLA+Dwd6YsvY9HwSFaJMzp4QoG2kEhaeJw8y\nkYPootJvFeEG4GqU3IkYmYG/xx4FtDJs7aAh+XaaPAcfqiUISE+Srf/FDsc236e+\nx0k4PQ7VAgMBAAECggEAUf2hweOJF6R2awE/P4McxOWKIUbQlcFlcG4i8EvpuVRX\nRPfXpVwL5DDoTTRAbId3/36eGxybCOnf65qWBN1aTrkIS4cgipIYgJgE4FktBes+\n+obH/tuM3BJU4sSWEslcl4tK2OTRFU76sPVgDJAu9blYILemZQKhzMTURcVRVh3/\nBUC8oIcxhi4LMk5zjkKwwIJszQh8vzYrTPZjBL3PAqp7IW6iqqxdjAWpbSLjQW/0\nWifLnJtast5vD9fMvcj68ZiggwqroriWZCf9SxRq54BMA5jCdO01UqKeljp+vlTT\nEc+gwvP6Oa5wQk0RJRVqKARjYoBnRG4O+1Oea4nyoQKBgQD58WL39RQ0fyfRXxWU\nYJZLWIli/DCpL47zc23Ks7BRYjJ46Nb4aOC+qt1aj4tiwxFFd9cCxPLow+cbYMci\nsInCqVEMZgiEGsqAmWfy8lp8VN6Uk+86ZoVhRPv9Wd1FB9vb1z2R+5i0zFGkTInr\nT2TppPD9a3hBq+LqIiCkzHxFiwKBgQD3MwmnmGozuWN8SGy0yzGAFZPdZwOsfvfM\nLqBWc0RH5Gn/JH/kMOTsnoBntTvJV0GYGYLr6eGu2qCgdZ7AHwJAAf3DWbBcLcPY\ngFgv4WG/eXpRGHbGm0HJ6N1vI6ubcVb9AUgUjzBP84fYd7izTeyDfG1PLALFJHPT\nHvd6k5RJHwKBgBU/Gr2fPLd1s6nNnmT9jOkcvpkGfRB0tX8macfYXH2ejlHO4S8+\noxQyLBzdpOihUl+IX2Oh4FA/Du8529OsFBnTEMuwBLtOF7a006xIQ77b7AvPQ3/A\nZUgueAlCUVfj4iGe+2HkdEeyMqJ3yyWQmzBtT/sK3q8ecGycuA+qPkofAoGBAOKB\ntqAF7ZJVlg4kgs8qvMHDg8jEgr5FXSOPucVdOzyw1FtAg5uBHdKe7cOZch3sQSNw\nhOFMXkoM9E/zVrJt927VJEQi45GjMago+iVtXFbJpcW3J+aWDrNHF9ellLILKY0M\n5pJIHhm0aU51bR2HEmfs1HBOQH+KBkN2RYfgwGg7AoGAGkt+Ozr0MrNKn1khjm8c\nUPRVnkbgdGhLujQG8kLRG800fnNJ3xEuibFIZ1Hwd4UKiTueanzqj3yYPfzsgdzQ\nHmwK8jNutKFBvfdHBtoqt8ucbtqYdcbnDAzIqPSQWJ2Hx6tOwu1ayF5w2KZjVKQB\nnCXqWRvdgFOFn0KvofjFfRg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mac-gto@carbide-ether-429302-b3.iam.gserviceaccount.com",
+  "client_id": "115913849684087431975",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mac-gto%40carbide-ether-429302-b3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
